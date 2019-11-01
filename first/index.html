@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function dealNumberToMoney(money){
+            money = money+''
+    var fmtAmt = "";
+    if(money&&money!=null){
+        money = money.replace(/,/g,"").replace(/，/g,"");
+        if(money.indexOf(".")==-1){
+            money = money + ".00";
+        }
+        
+        var index = money.indexOf(".");
+        var floatValue = money.substring(index+1);
+        
+        var count = 0;
+        for(var i=(index);i>=0;i--){
+            fmtAmt = money[i]+fmtAmt;
+            if(count==3&&i!=0){
+                fmtAmt = "," + fmtAmt;
+                count = 0;
+            }
+            count++;
+        }
+    }
+    
+    fmtAmt += floatValue;
+    
+       return fmtAmt;
+}   
+console.log(dealNumberToMoney(300000))
+    </script>
+</body>
+</html>

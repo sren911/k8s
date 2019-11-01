@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: sb-redis
+  profiles:
+    active: produce
+
+---
+spring:
+  profiles: dev
+  redis:
+    host: localhost
+    port: 6379
+
+---
+spring:
+  profiles: produce
+  redis:
+    host: redis
+    port: 6379
